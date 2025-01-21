@@ -28,8 +28,8 @@ dist_noinst_SCRIPTS=build-db
 pkglibdata_DATA+=service-types.db
 
 service-types.db: service-types
-	$(AM_V_GEN)$(PYTHON) $(srcdir)/build-db $< $@.coming && \
-	mv $@.coming $@
+	$(AM_V_GEN)$(PYTHON) $(srcdir)/build-db $< $@.coming.db && \
+	mv $@.coming.db $@
 
 CLEANFILES = service-types.db
 
