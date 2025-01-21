@@ -23,6 +23,7 @@ except ImportError:
     import dbm
 
 import sys
+import os
 
 if len(sys.argv) > 1:
     infn = sys.argv[1]
@@ -47,3 +48,10 @@ for ln in open(infn, "r"):
     db[t.strip()] = n.strip()
 
 db.close()
+
+# dbm on FreeBSD appends ".db" to the file's name, which is not what caller
+# expects accomodate for that by renaming the file
+try:
+    os.rename(outfn+".db", outfn)
+except:
+    pass
