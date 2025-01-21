@@ -29,7 +29,7 @@ pkglibdata_DATA+=service-types.db
 
 service-types.db: service-types
 	$(AM_V_GEN)$(PYTHON) $(srcdir)/build-db $< $@.coming && \
-	mv $@.coming $@
+	mv $@.coming.db $@
 
 CLEANFILES = service-types.db
 
