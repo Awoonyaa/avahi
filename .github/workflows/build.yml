@@ -71,5 +71,5 @@ jobs:
             export CC=clang
             sudo -E pkg install -y gettext-runtime gettext-tools gmake intltool \
             gobject-introspection pkgconf expat libdaemon dbus-glib dbus gdbm \
-            libevent glib automake
+            libevent glib automake libtool qt5 gtk3
             sudo -E .github/workflows/build.sh build
