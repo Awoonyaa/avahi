@@ -78,14 +78,22 @@ case "$1" in
         fi
         export CXXFLAGS="$CFLAGS"
 
+        if [[ $(uname -s) != FreeBSD ]]; then
+            prefix="/usr"
+            libdir="/usr/lib/$(dpkg-architecture -qDEB_HOST_MULTIARCH)"
+        else
+            prefix="/usr/local"
+            libdir="$prefix/lib"
+        fi
+
         ./bootstrap.sh \
             --enable-compat-howl \
             --enable-compat-libdns_sd \
             --enable-core-docs \
             --enable-tests \
-            --libdir="/usr/lib/$(dpkg-architecture -qDEB_HOST_MULTIARCH)" \
+            --libdir=$libdir \
             --localstatedir=/var \
-            --prefix=/usr \
+            --prefix=$prefix \
             --runstatedir=/run \
             --sysconfdir=/etc
 
