@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This file is part of avahi.
 #
@@ -79,6 +79,6 @@ else
     cd "$olddir"
     if test "x$NOCONFIGURE" = "x"; then
         $srcdir/configure "$@"
-        make clean
+        $MAKE clean
     fi
 fi
