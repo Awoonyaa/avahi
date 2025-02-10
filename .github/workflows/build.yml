@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - master
+      - my_avahi
 
 permissions:
   contents: read
